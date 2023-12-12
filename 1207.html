@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 連結 css -->
+    <link rel="stylesheet" type="text/css" href="1009.css">
+    <!-- 腳本 js -->
+    <script type="text/javascript">
+        
+        // const addToDoLine = function() {}
+
+        // 新增清單文字
+        function addToDoLine() {
+            // 新增物件 標籤li
+            let li = document.createElement("li");
+            // 抓取輸入框
+            let inputValue = document.getElementById('inputBox').value;
+            // 為輸入字串 創建文字元素
+            let inputTextNode = document.createTextNode(inputValue)
+            // 標籤節點li 加入文字元素
+            li.appendChild(inputTextNode);
+
+            // // 創建空白清單
+            // let myNodeList = []
+            // // 陣列加入 輸入匡文字
+            // myNodeList.push(inputValue);
+
+
+
+            // 判斷有無輸入內容
+            if  (inputValue === '') {
+                // 跳出警告
+                alert("抓到 沒寫東西");
+            } else {
+                // 在空白的容器中加入新的文字
+                document.getElementById("todoContainer").appendChild(li);
+            }
+            // 清除輸入框框中的內容
+            document.getElementById('inputBox').value = "";
+
+            // 抓取輸入的li數量 繪製成一個清單
+            var yourNodeList = document.getElementsByTagName("li");
+            // 用這份清單的長度做一個回圈
+            for (let i = 0; i < yourNodeList.length; i++) {
+                // 創造一個 可輸入屬性（打勾勾物件）
+                let input = document.createElement('input');
+                // 創造一個 不用換行空白物件
+                let span = document.createElement("span");
+                // 創造一個 文字 x
+                let txt = document.createTextNode("\u00D7");
+                // 設定input屬性成為checkbox
+                input.setAttribute("type", "checkbox");
+                // 設定input名稱。。。上述這兩個可以合併嗎
+                input.className = "checked";
+                // 增加文子給 span物件
+                span.appendChild(txt);
+                // 設定span名稱
+                span.className = "close";
+                // 增加span x在清單中
+                yourNodeList[i].appendChild(span);
+                //  增加input在清單中
+                yourNodeList[i].appendChild(input);
+                
+            };
+        // 取得span x節點
+        let close = document.getElementsByClassName("close");
+        // 製造迴圈
+        for (let i = 0; i < close.length; i++) {
+            // function close[i].onclick() {}
+            // 點擊span x觸發事件
+            close[i].onclick = function() {
+                // 抓取此物件的父輩
+                let div = this.parentElement;
+                // 刪除此物件父輩
+                div.remove();
+            };
+        };
+        // 抓取input checkBox物件
+        let beDone = document.getElementsByClassName("checked");
+        // 創造 之前 物件 
+        let before = document.createElement("before");
+        // 製造迴圈
+        for (let i = 0; i < beDone.length; i++) {
+            // 點擊 input checkbox觸發事件
+            beDone[i].onclick = function() {
+                // 抓取此物件的父輩
+                let div = this.parentElement;
+                // 物件父輩加上 before
+                div.classList.toggle("before");
+            };
+        };
+        };
+
+    </script>
+
+
+</head>
+<body>
+    <!-- 基地 -->
+    <div class="card">
+        <!-- 抬頭 -->
+        <div class="header">
+            <label>to do list</label>
+        </div>
+        <!-- 輸入匡 -->
+        <div class="inputContainer">
+            <input id="inputBox" type="text" placeholder="Add New Todo Here...">
+            <button id="plusButton" onclick="addToDoLine()" >+</button>
+        </div>
+        <!-- 線條 -->
+        <div class="line_1"></div>
+
+        <div>
+            <ul id="todoContainer">
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>

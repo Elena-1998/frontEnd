@@ -1,0 +1,104 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(235, 235, 235);
+}
+
+.card {
+    margin: 20px;
+    text-align: center;
+    width: 40%;
+    /* height: 400px; */
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+}
+
+.header{
+    color: rgb(95, 95, 95);
+    display: block;
+    justify-content: center;
+    margin: 10px;
+    font-size: 70px;
+}
+
+.inputContainer {   
+    height: 60px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#inputBox {
+    border-style: solid;
+    border-color: rgb(160, 160, 160);
+    margin: 10px;
+    padding: 0px 10px ;
+    border-radius: 50px;
+    width: 70%;
+    height: 100%;
+    font-size: 20px;
+    color: rgb(95, 95, 95);
+}
+
+#plusButton {
+    border-style: solid;
+    border-color: rgb(160, 160, 160);
+    margin: 10px;
+    width: 60px;
+    height: 100%;
+    border-radius: 50px;
+    font-size: 40px;
+    color: rgb(95, 95, 95);
+    background-color: white;
+}
+
+.line_1 {
+    display: flex;
+    justify-content: center;
+    margin: 50px 50px;
+    height: 1px;
+    border: 0;
+    background: rgb(95, 95, 95);
+}
+ 
+/* .checkBox {
+    height: 30px;
+    width: 30px;
+    
+} */
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    margin: 50px ;
+    display: flex;
+    cursor: pointer;
+    color: rgb(95, 95, 95);
+    font-size: 22px;
+    word-wrap: normal;
+}
+.checked {
+    position: absolute;
+    left: 0;
+    bottom: 18px;
+    color:#888;
+}
+
+.before {
+    color: #888;
+    text-decoration: line-through;
+}
+.close {
+    display: inline;
+    position: absolute;
+    right: 0;
+    /* margin: 0 0 0 500px; */
+    justify-content: end;
+}
